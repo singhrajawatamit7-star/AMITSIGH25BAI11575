@@ -1,15 +1,16 @@
-import sys
 import os
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 import networkx as nx
 
-# Add parent directory to path so we can import AIMLTRAFFICcode
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from AIMLTRAFFICcode import create_traffic_graph, dfs_path, bfs_path, generate_dataset, train_ml_model
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 # Initialize graph and model
 G = create_traffic_graph()

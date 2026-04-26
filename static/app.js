@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = '/api';
 
 const canvas = document.getElementById('traffic-map');
 const ctx = canvas.getContext('2d');
