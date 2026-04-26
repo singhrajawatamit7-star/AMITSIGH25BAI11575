@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Traffic Control Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Dashboard -->
+        <aside class="sidebar glass-panel">
+            <header>
+                <div class="logo">
+                    <div class="logo-icon">🚥</div>
+                    <h1>Traffic<span class="highlight">OS</span></h1>
+                </div>
+                <p class="subtitle">AI-Powered City Control</p>
+            </header>
+
+            <section class="control-group">
+                <h3>Routing Controls</h3>
+                <div class="input-group">
+                    <label for="start-node">Start Intersection</label>
+                    <select id="start-node"></select>
+                </div>
+                <div class="input-group">
+                    <label for="goal-node">Goal Intersection</label>
+                    <select id="goal-node"></select>
+                </div>
+                <button id="find-route-btn" class="primary-btn">
+                    <span class="btn-text">Optimize Route</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </section>
+
+            <section class="ml-insights glass-panel inner-panel">
+                <h3>ML Insights</h3>
+                <div id="ml-loading" class="insight-content">
+                    <p>Awaiting routing data...</p>
+                </div>
+                <div id="ml-result" class="insight-content hidden">
+                    <div class="insight-metric">
+                        <span class="metric-label">Recommended Algo</span>
+                        <span id="algo-rec" class="metric-value">--</span>
+                    </div>
+                    <div class="insight-metric">
+                        <span class="metric-label">Confidence Score</span>
+                        <span id="algo-conf" class="metric-value">--%</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="legend">
+                <h3>Legend</h3>
+                <ul>
+                    <li><span class="color-box dfs"></span> DFS (Deep Exploration)</li>
+                    <li><span class="color-box bfs"></span> BFS (Shortest Path)</li>
+                    <li><span class="color-box node"></span> Intersection</li>
+                </ul>
+            </section>
+        </aside>
+
+        <!-- Main Map Area -->
+        <main class="map-container">
+            <div class="map-wrapper glass-panel">
+                <canvas id="traffic-map"></canvas>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
